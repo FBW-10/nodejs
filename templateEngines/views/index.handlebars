@@ -1,21 +1,9 @@
-<html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <h1>My Pizzaplace</h1>
-    <ul class="list-group">
-      {{#each items}}
-      <li class="list-group-item">{{ name }} {{ price }}</li>
-      {{/each}}
-      <li class="list-group-item">
-        Total: <strong>{{total items}}</strong>
-      </li>
-    </ul>
-  </body>
-</html>
+<h1>My Pizzaplace from Tommy</h1>
+<ul class="list-group">
+  {{#each items}}
+  <li class="list-group-item">{{ name }} {{ price }}</li>
+  {{/each}}
+  <li class="list-group-item">
+    Total: <strong>{{total items}}</strong>
+  </li>
+</ul>

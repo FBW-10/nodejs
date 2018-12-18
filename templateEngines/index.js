@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const Handlebars = require('handlebars')  
 const expressHandlebars = require('express-handlebars');
-app.engine('handlebars', expressHandlebars({layout: false}));
+app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 const items = [{
   name: 'Fungi',
@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {  
   res.render("about");
 });
-app.get('contact', function(req, res) {  
+app.get('/contact', function(req, res) {  
   res.render("contact");
 });
 
