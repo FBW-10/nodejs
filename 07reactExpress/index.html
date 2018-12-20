@@ -7,7 +7,22 @@
   </head>
   <body>
     <h1>This is a CORS request to the Express api running on a server-port</h1>
+    <button>Send</button>
     <script charset="utf-8">
+      document.querySelector("button").addEventListener("click", (event) => {
+        
+        fetch('http://localhost:5000/contact', {
+          method: 'POST', // or 'PUT'
+          body: JSON.stringify({name: "tommy"}), // data can be `string` or {object}!
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(res => res.json())
+        .then(response => console.log('Success:', response))
+        .catch(error => console.error('Error:', error));
+
+      })
       fetch("http://localhost:5000/users")
        .then(resp => resp.json())
        .then((response) => {

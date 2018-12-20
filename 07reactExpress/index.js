@@ -2,6 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser')
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false })) 
+// parse application/json
+app.use(bodyParser.json())
 
 app.use(function(req, res, next) {
   console.log("###", req.headers);
@@ -40,6 +45,11 @@ const singleUsersHandler = (req, res) => {
 app.get("/", requestHandler);
 app.get("/users", usersHandler);
 app.get("/users/:id", singleUsersHandler);
+
+app.post("/contact", (req, res) => {
+  console.log(req.body);
+  res.send({success: "Success"});
+});
 
 app.get("/*", (req, res) => {
   console.log("Fallback route for stupid things like curl localhost:5000/dkaslfh");
